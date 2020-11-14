@@ -7,6 +7,12 @@ const stakingRewardsFactoryAddress = "0x77Dcfe8904d571CF05e4EedFa81C22c3cB57c444
 
 const tsAddress="0x1af77a32a95dc886c84604869b4b8adc8264427a";
 
+const ZWETHLPAddress="0xd67dc90d35ede929eaef186afdc001f20661a02a";
+
+const SKETHLPAddress = "0x5be353576650dc87e188731df4dcf26dece56529";
+
+const DDDLPAddress = "0xcf5422f6abb4c7efbcaecfb8ccabb9288429756b";
+
 //连接到Ganache
 var web3 = new Web3(new Web3.providers.HttpProvider('https://ropsten.infura.io/v3/30bf4bface004c04b0ee6fa05753adca'));
 
@@ -51,7 +57,7 @@ web3.eth.getTransactionCount(address).then(
             gasPrice: web3.utils.toHex(web3.utils.toWei('10', 'gwei')),
             // value: web3.utils.toHex(new BigNumber(1000000000000000000)),
             to: stakingRewardsFactoryAddress,
-            data: contract.methods.deploy(tsAddress,5000000).encodeABI(), //智能合约中set方法的abi
+            data: contract.methods.deploy(DDDLPAddress,"500000000000000000000000").encodeABI(), //智能合约中set方法的abi
            
           }
           const tx = new TX(txParams, { chain: 'ropsten' })
